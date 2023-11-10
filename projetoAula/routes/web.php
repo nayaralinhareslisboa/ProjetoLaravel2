@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+use App\Http\Controllers\UsuarioController;
+//Rota para listar todos os usuarios
+Route::get('/usuarios', [UsuarioController::class,'index'])->name('usuarios.index');
+
+//rota que direciona para a página que tem o formulario de cadastro
+Route::get('/usuarios/cadastro', [UsuarioController::class,'cadastro'])->name('usuarios.cadastro');
+
+//Rota que direciona para o processamento do formulário
+Route::post('/usuarios/novo', [UsuarioController::class,'novo'])->name('usuarios.novo');

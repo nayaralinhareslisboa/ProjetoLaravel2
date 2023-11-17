@@ -5,6 +5,7 @@
 <body>
     @yield('conteudo')
     @yield('cadastro')
+    @yield('login')
 </body>
 
 </html>

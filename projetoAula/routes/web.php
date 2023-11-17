@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,11 @@ Route::get('/usuarios/cadastro', [UsuarioController::class,'cadastro'])->name('u
 
 //Rota que direciona para o processamento do formulário
 Route::post('/usuarios/novo', [UsuarioController::class,'novo'])->name('usuarios.novo');
+
+
+//Rota para chamar tela de login
+Route::get('/telalogin', [AppController::class, 
+'telaLogin'])->name('tela.login'); 
+
+//Rota para chamar a função de fazer login
+Route::post('/login', [AppController::class, 'login'])->name('login');

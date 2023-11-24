@@ -32,4 +32,39 @@ class UsuarioController extends Controller
         }
         return view("usuarios.resultado",compact("mensagem")); 
     }
+    
+    public function telaAlteracao($id){
+        $usuario = Usuario::find($id); // find busca o atributo de chave primária
+        return view("usuarios.alterar", ["u" => $usuario]);
+    }
+
+    public function alterar(Request $req, $id){
+        $nome = $req->input("nome");
+        $login = $req->input("login");
+        $senha = $req->input("senha");
+
+        $usuario = Usuario::find($id);
+        $usuario->nome = $nome;
+        $usuario->login = $login;
+        $usuario->senha = $senha;
+
+        if ($usuario->save()){
+            $msg = "Usuário atualizado com sucesso";
+        }else{
+            $msg = "Usuário não foi atualizado";
+        }
+        return view("usuarios.resultado", ["mensagem" => $msg]);
+    }
+
+    public function excluir($id){
+        $usuario = Usuario::find($id);
+        
+        if($usuario->delete()){ 
+            $msg = "Usuário excluído com sucesso";
+        }else{
+            $msg = "Não foi possível excluir o usuário";
+        }
+        return view("usuarios.resultado", ["mensagem"=> $msg]);
+    }
+
 }

@@ -35,3 +35,15 @@ Route::get('/telalogin', [AppController::class,
 
 //Rota para chamar a função de fazer login
 Route::post('/login', [AppController::class, 'login'])->name('login');
+
+//Rota para acessar a tela de alteração de usuario
+Route::get('/usuario/alterar/{id}', [UsuarioController::class,'telaAlteracao'])->name('usuario.atualiza'); 
+
+//Rota para alterar o cadastro do usuario
+Route::post('/usuario/alterar/{id}', 
+[UsuarioController::class,'alterar'])->name('usuario.alterar'); 
+
+//Rota para excluir o usuario
+Route::get('/usuario/excluir/{id}', 
+[UsuarioController::class,'excluir'])->name('usuario.excluir'); 
+

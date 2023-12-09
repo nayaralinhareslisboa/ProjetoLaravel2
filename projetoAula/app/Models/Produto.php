@@ -5,13 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Usuario extends Model
+class Produto extends Model
 {
     use HasFactory;
-    protected $table = 'usuarios';
+    protected $table = 'produtos';
     protected $primaryKey = 'id';
-
-    function vendas(){
-        return $this->hasMany('App\Models\Venda','id_usuario','id');
-    }
 }

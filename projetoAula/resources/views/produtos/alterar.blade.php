@@ -3,10 +3,10 @@
 <div class="container mt-5">
     <div class="row row-cols-1">
         <div class="col mx-3">
-            <h1 class="text-center">Alteração de Usuários</h1>
+            <h1 class="text-center">Alteração de Produtos</h1>
         </div>
         <div class="col col-lg-6 mx-auto table-responsive">
-            <form class="row row-cols-1" method="post" action="{{ route('usuario.alterar' , ['id' => $u->id]) }}">
+            <form class="row row-cols-1" method="post" action="{{ route('produto.alterar' , ['id' => $u->id]) }}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="col">
                 <div class="form-floating mb-3">
@@ -16,14 +16,20 @@
             </div>
             <div class="col">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="login" name="login" placeholder="login" value="{{ $u ->login }}">
-                    <label for="login">Login</label>
+                    <input type="text" class="form-control" id="tipo" name="tipo" placeholder="tipo" value="{{ $u ->tipo }}">
+                    <label for="tipo">Tipo</label>
                 </div>
             </div>
             <div class="col">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="senha" name="senha" placeholder="senha" value="{{ $u ->senha }}">
-                    <label for="senha">Senha</label>
+                    <input type="number" class="form-control" id="preco" name="preco" placeholder="preco" value="{{ $u ->preco }}">
+                    <label for="preco">Preço</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="quantidade" name="quantidade" placeholder="quantidade" value="{{ $u ->quantidade }}">
+                    <label for="quantidade">Quantidade</label>
                 </div>
             </div>
                 <button class="btn btn-success" type="submit">Salvar</button>
